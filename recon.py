@@ -19,6 +19,11 @@ def process_ip(ip):
             print(notification_colors.FAIL + 'Creation of the directory ./report failed' + notification_colors.END)
         else:           
             print(notification_colors.OK + 'Successfully created' + notification_colors.END)
+            print('Proccessing: {}'.format(ip))
+            try:
+                os.mkdir('./report/'+ip)
+            except OSError:
+                print(notification_colors.FAIL + 'Creation of the directory ./report/{} failed'.format(ip) + notification_colors.END)
     else:
         print('Proccessing: {}'.format(ip))
         try:
